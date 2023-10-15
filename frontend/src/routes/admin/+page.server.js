@@ -5,11 +5,8 @@ export const actions = {
     createStep: async ({ request }) => {
         const formData = await request.formData();
         const definitionId = formData.get('definition-id');
-        console.log(`createReview ${definitionId}`);
         const resp = await createInstance(fetch, definitionId);
-        console.log(resp);
         throw redirect(303, '/reviews');
-        //return { success: true };
     },
 };
   

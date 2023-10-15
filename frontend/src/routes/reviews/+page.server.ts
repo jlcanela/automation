@@ -6,8 +6,7 @@ export const actions = {
     completeTask: async ({ request }) => {
       const formData = await request.formData();
         const taskId = formData.get('task-id');
-        const resp = await complete(fetch, taskId);
-        console.log(resp);
+        await complete(fetch, taskId);
         return { success: true };
     },
 };

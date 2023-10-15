@@ -34,7 +34,6 @@ export async function complete(fetch, taskId: string | null) {
 export async function getReviews(fetch) {
     const res = await fetch(`${url}/engine/default/task?processDefinitionKeyIn=ReviewInvoice`);
     const processes = await res.json();
-    //console.log(processes);
     return processes;
 }
 
@@ -48,9 +47,4 @@ export async function createInstance(fetch, processDefinitionKey: string) {
     });
     const text = resp.text();
     return text;
-    //console.log(processes);
-    //return processes;
 }
-
-//const response = await fetch(`${engineUrl}/process-definition/key/${j.create}/start`, {
-//});
