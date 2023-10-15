@@ -1,32 +1,7 @@
 <script>
-    import { enhance } from '$app/forms';
-    export let form;
-    export let data;
-    export let currentKey;
-
-    /*
-    let formData = { orderId: '1', productId: "1" };
-
-    function showCreateReview(param) {
-        currentKey = param;
-        console.log("createReview:", param);
-        var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {
-            keyboard: false
-            })
-        myModal.show();
-    }
-    */
-    async function createReview() {
-        const response = await fetch('/admin/review', {
-            method: 'POST',
-            body: JSON.stringify({ create: currentKey }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-        console.log("review created");
-        return response;
-    }
+import { enhance } from '$app/forms';
+export let form;
+export let data;
 </script>
 
 <h1 class='text-center'>Admin</h1>

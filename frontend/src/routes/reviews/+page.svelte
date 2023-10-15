@@ -2,17 +2,6 @@
 import { enhance } from '$app/forms';
 export let data;
 
-async function complete(taskId) {
-    const response = await fetch('/reviews/complete', {
-        method: 'POST',
-        body: JSON.stringify({ id: taskId }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
-    return response;
-}
-
 </script>
 
 <h1 class='text-center'>Reviews</h1>

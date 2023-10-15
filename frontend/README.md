@@ -3,12 +3,14 @@
 ## Developing
 
 Start the docker compose:
-```
+
+```bash
 docker-compose up -d
 ```
 
 Stop the docker compose:
-```
+
+```bash
 docker-compose down
 ```
 
