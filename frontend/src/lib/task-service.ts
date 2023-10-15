@@ -15,35 +15,39 @@ export async function getProcessDefinitions(fetch) {
 
 export async function complete(fetch, taskId: string | null) {
     if (!taskId) {
+        console.log("no task id");
         return;
     }
 
     const response = await fetch(`${url}/task/${taskId}/complete`, {
-          method: 'POST',
-          body: JSON.stringify({ variables: {} }),
-          headers: {
-              'Content-Type': 'application/json'
-          }
-      });
-    return response;
+        method: 'POST',
+        body: JSON.stringify({ variables: { amount: { "value": 29.99 }, reviewer: {"value": "john"} } }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    const text = response.text();
+    return text;
 }
 
 
 export async function getReviews(fetch) {
-    const res = await fetch(`${url}/engine/default/task?processDefinitionKeyIn=step1`);
+    const res = await fetch(`${url}/engine/default/task?processDefinitionKeyIn=ReviewInvoice`);
     const processes = await res.json();
     //console.log(processes);
     return processes;
 }
 
 export async function createInstance(fetch, processDefinitionKey: string) {
-    await fetch(`${url}/engine/default/process-definition/key/${processDefinitionKey}/start`, {
+    const resp = await fetch(`${url}/engine/default/process-definition/key/${processDefinitionKey}/start`, {
         method: 'POST',
         //body: JSON.stringify({ create: j.create }),
         headers: {
             'Content-Type': 'application/json'
         }
     });
+    const text = resp.text();
+    return text;
     //console.log(processes);
     //return processes;
 }

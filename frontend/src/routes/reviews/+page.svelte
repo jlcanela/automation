@@ -28,8 +28,8 @@ export let data;
                 <td>{review.taskDefinitionKey}</td>
                 <td>{review.formKey}</td>
                 <td>
-                    <form action="?/complete" method="POST"  use:enhance>
-                        <input type="hidden" name="review-id" value="{review.id}">
+                    <form action="?/completeTask" method="POST"  use:enhance>
+                        <input type="hidden" name="task-id" value="{review.id}">
                     <button type="submit" class="btn btn-primary btn-sm">
                         Complete
                     </button>
